@@ -1,0 +1,97 @@
+.divLogin{
+    width: 100%;
+    height: 100vh;
+    background: #F3F4F5;
+    position: fixed;
+}
+
+.contenedorLoginCentro{
+    width: 25%;
+    height: 450px;
+    border-radius: 5px;
+    margin-top: 70px;
+    margin-left: 40%;
+    background: white;
+    /* float: left; */
+}
+
+.tituloLogin{
+    width: 100%;
+    height: 150px;
+    /* background: burlywood; */
+    float: left;
+}
+
+.tituloLogin div{
+    width: 70%;
+    height: 100px;
+    margin-left: 15%;
+    margin-top: 25px;    
+    /* background: greenyellow; */
+    float: left;
+}
+
+.tituloLogin div img{
+    width: 100%;
+    height: 100px;
+}
+
+.contenedorLoginCentro form{
+    width: 90%;
+    height: 220px;
+    margin-left: 5%;
+    /* background: blueviolet; */
+    float: left;
+}
+
+.contenedorLoginCentro form input{
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    background: #F3F4F5;
+    border: 1px solid#AEAEAE;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.contenedorLoginCentro form input::placeholder{
+    padding-left: 5%;
+}
+
+.contenedorLoginCentro form input[type='submit']{
+    width: 70%;
+    margin-left: 15%;
+    background: #71BCFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 50px;
+    color: white;
+}
+
+.contenedorLoginCentro form input[type='submit']:hover{
+    background: #98CEFE;
+}
+
+.divRedireccionLogin{
+    width: 90%;
+    height: 55px;
+    margin-top: 10px;
+    /* background: grey; */
+    margin-left: 5%;
+    float: left;
+}
+
+.divRedireccionLogin p{
+    text-align: center;
+    color: #B4B4B4;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.link{
+    color: #98CEFE;
+    text-decoration: none;
+    cursor: pointer;
+}
+

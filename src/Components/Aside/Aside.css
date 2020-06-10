@@ -1,0 +1,11 @@
+aside{
+    /* width: 14%; */
+    height: 680px;
+    /* display: none; */
+    margin-top: 50px;
+    background:#ECECEC;
+    position: fixed;    
+}
+aside:hover{
+    overflow-y: scroll;
+}
