@@ -11,6 +11,8 @@ import Footer from '../Components/Footer/Footer';
 import Inicio from '../Pages/Inicio/Inicio';
 import Login from '../Pages/Login/Login';
 import Registro from '../Pages/Registro/Registro'
+//servicios
+import Services from '../Services/Services';
 
 function App(props){
 
@@ -18,6 +20,17 @@ function App(props){
     const [tamanoMenu, setTamanoMenu] = useState(false);
     const [modificarAsideContenedor, setModificarAsideContenedor] = useState('15%');
     const [tamanoContenedor, setTamanoContenedor] = useState('85%');
+    const [logueado, seLogueado] = useState(false);
+    const [datosUsuario, setDatosUsuario] = useState([])
+
+    useEffect( () => {
+        if(localStorage.getItem('viewinindice')){
+            seLogueado(true);
+            datosUsuarioLogueado(localStorage.getItem('viewinindice'));
+        }else{
+            seLogueado(false)   
+        }
+    },[localStorage.getItem('viewinindice')])
 
     //funcion para que desaparezca los componentes header aside footer
     const funcionOcultarHAF = () => {
@@ -47,13 +60,27 @@ function App(props){
         setTamanoContenedor('100%');
     };
 
+    //funcion para conseguir los datos dle usuario logueao
+    const datosUsuarioLogueado = (data) => {
+        console.log(data)
+
+        Services.getUserById(data)
+        .then(response => {
+            // console.log(response.data[0])
+            setDatosUsuario(response.data[0])
+        })
+        .catch(err => console.log(err))
+    }
+
+    // console.log(datosUsuario);
+
     return(
         <div>
             {
                 !verLoginRegistro           
                 ?
                 <div>
-                    <Header funcionMenuAside={funcionMenuAside}></Header>
+                    <Header funcionMenuAside={funcionMenuAside} logueado={logueado} datosUsuario={datosUsuario}></Header>
                     <Aside modificarAsideContenedor={modificarAsideContenedor}></Aside>
                 </div>
                 :
