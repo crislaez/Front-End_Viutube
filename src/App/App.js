@@ -18,8 +18,11 @@ function App(props){
 
     const [verLoginRegistro, setVerLoginRegistro] = useState(false);
     const [tamanoMenu, setTamanoMenu] = useState(false);
-    const [modificarAsideContenedor, setModificarAsideContenedor] = useState('15%');
-    const [tamanoContenedor, setTamanoContenedor] = useState('85%');
+    
+    const [modificarAsideContenedor, setModificarAsideContenedor] = useState('16%');
+    const [tamanoContenedor, setTamanoContenedor] = useState('84%');
+    const [desaparecerParrafosAside, setDesaparecerParrafosAside] = useState('block')
+    
     const [logueado, seLogueado] = useState(false);
     const [datosUsuario, setDatosUsuario] = useState([])
 
@@ -47,9 +50,11 @@ function App(props){
         if(!tamanoMenu){
             setModificarAsideContenedor('5%');
             setTamanoContenedor('95%');
+            setDesaparecerParrafosAside('none');
         }else{
-            setModificarAsideContenedor('15%');
-            setTamanoContenedor('85%');
+            setModificarAsideContenedor('16%');
+            setTamanoContenedor('84%');
+            setDesaparecerParrafosAside('block');
         }
         setTamanoMenu(!tamanoMenu);
     };
@@ -70,6 +75,16 @@ function App(props){
             setDatosUsuario(response.data[0])
         })
         .catch(err => console.log(err))
+    };
+
+    const getYoutubeVideo = (data) => {
+        console.log(data)
+
+        Services.getVideo(data)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err => console.log(err))
     }
 
     // console.log(datosUsuario);
@@ -80,8 +95,17 @@ function App(props){
                 !verLoginRegistro           
                 ?
                 <div>
-                    <Header funcionMenuAside={funcionMenuAside} logueado={logueado} datosUsuario={datosUsuario}></Header>
-                    <Aside modificarAsideContenedor={modificarAsideContenedor}></Aside>
+                    <Header 
+                    funcionMenuAside={funcionMenuAside} 
+                    logueado={logueado} 
+                    datosUsuario={datosUsuario}
+                    getYoutubeVideo={getYoutubeVideo}
+                    ></Header>
+                    <Aside 
+                    modificarAsideContenedor={modificarAsideContenedor}
+                    desaparecerParrafosAside={desaparecerParrafosAside}
+                    logueado={logueado}
+                    ></Aside>
                 </div>
                 :
                 <div style={{display:'none'}}></div>

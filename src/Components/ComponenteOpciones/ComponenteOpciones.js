@@ -1,8 +1,31 @@
 import React, {useState,useEffect} from 'react';
 //css
 import './ComponenteOpciones.css';
+//font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUserCircle, faEuroSign, faCog, faUserFriends, faSignOutAlt, faLightbulb, faLanguage, faGlobe, faCogs, faUserShield, faQuestion, faEnvelopeOpenText, faKeyboard, faArrowRight} from '@fortawesome/free-solid-svg-icons';
+//alerta
+import swal from 'sweetalert';
+
 
 function ComponenteOpciones(props){
+
+    //funcion para cerrar sesion
+    const handleClickCerrarSesion = () => {
+        swal({
+            title: "Estas seguro?",
+            text: "¿Seguro que quieres cerrar sesion?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+               localStorage.removeItem('viewinindice');
+               window.location.reload(true)
+            }            
+        });
+        };
 
     return(
         <div className='divComponenteOpciones'>
@@ -19,26 +42,26 @@ function ComponenteOpciones(props){
             </div>
 
             <div className='opcionesUp'>
-                <p>Tu canal</p>
-                <p>Suscripciones de pago</p>
-                <p>ViuTube Studio</p>
-                <p>Cambio de cuenta</p>
-                <p>Cerrar sesion</p>
+                <p><label><FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon></label>Tu canal</p>
+                <p><label><FontAwesomeIcon icon={faEuroSign}></FontAwesomeIcon></label>Suscripciones de pago</p>
+                <p><label><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>ViuTube Studio</p>
+                <p><label><FontAwesomeIcon icon={faUserFriends}></FontAwesomeIcon></label>Cambio de cuenta<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
+                <p onClick={handleClickCerrarSesion}><label><FontAwesomeIcon icon={faSignOutAlt}></FontAwesomeIcon></label>Cerrar sesion</p>
             </div>
 
             <div className='opcionesCenter'>
-                <p>Tema oscuro desactivado</p>
-                <p>Idioma: Español</p>
-                <p>Ubicacion: España</p>
-                <p>Configuracion</p>
-                <p>Tus datos de ViuTube</p>
-                <p>Ayuda</p>
-                <p>Enviar sugerencias</p>
-                <p>Combinaciones de teclas</p>
+                <p><label><FontAwesomeIcon icon={faLightbulb}></FontAwesomeIcon></label>Tema oscuro desactivado<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
+                <p><label><FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon></label>Idioma: Español<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
+                <p><label><FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon></label>Ubicacion: España<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
+                <p><label><FontAwesomeIcon icon={faCogs}></FontAwesomeIcon></label>Configuracion</p>
+                <p><label><FontAwesomeIcon icon={faUserShield}></FontAwesomeIcon></label>Tus datos de ViuTube</p>
+                <p><label><FontAwesomeIcon icon={faQuestion}></FontAwesomeIcon></label>Ayuda</p>
+                <p><label><FontAwesomeIcon icon={faEnvelopeOpenText}></FontAwesomeIcon></label>Enviar sugerencias</p>
+                <p><label><FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon></label>Combinaciones de teclas</p>
             </div>
 
             <div className='opcionesDown'>
-                <p>Modo restringido desactivado</p>
+                <p>Modo restringido desactivado<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
             </div>
         </div>
     )

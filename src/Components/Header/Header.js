@@ -16,7 +16,7 @@ function Header(props){
     const [margenLeftDivOpciones, setMargenLeftDivOpciones] = useState('');
     const [aparecerdivOpciones, setAparecerdivOpciones] = useState(false);
 
-
+    // getYoutubeVideo
 
     useEffect( () => {
         if(props.logueado){
@@ -27,15 +27,23 @@ function Header(props){
     },[props.logueado]);
 
 
-
+    //evento del campo buscador
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(textoBuscador)
+        //llamamos a la funcion que esta en app que nos buscara las videos
+        const getYoutubeVideo = props.getYoutubeVideo;
+        getYoutubeVideo(textoBuscador);
+        //limpiamos el campo
+        setTextoBuscador('');
     };
 
+    //recargar la pagina cuando pinchemos el logo del header
     const handleClick = () => {
         window.location.reload(true)
     };
     
+    //se cargara el componenteOpciones o desaparecera cuando pinchemos en el logo dle usuario
     const handleClickEditar = () => {
         setAparecerdivOpciones(!aparecerdivOpciones)
     };

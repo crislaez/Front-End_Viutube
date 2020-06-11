@@ -1,0 +1,83 @@
+
+.divRecomendados{
+    width: 100%;
+    height: 700px;
+    border-bottom: 3px solid #CACACA;
+    float: left;
+}
+
+.tituloRecomendados{
+    width: 100%;
+    height: 70px;
+    float: left;
+}
+
+.tituloRecomendados h3{
+    margin-left:2%;
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+.divVideo{
+    width: 23.7%;
+    height: 300px;
+    margin-top: 10px;
+    margin-left: 1%;
+    /* background: white; */
+    float: left;
+}
+
+.cajaVideo{
+    width: 97%;
+    margin-left: 1%;
+    height: 160px;
+    margin-top: 5px;
+    float: left;
+}
+
+.cajaVideo iframe{
+    width: 100%;
+    height: 160px;
+}
+
+.divLogoCanal{
+    width: 12%;
+    height: 37px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-top: 10px;
+    background: plum;
+    float: left;
+}
+
+.divLogoCanal img{
+    width: 100%;
+    height: 37px;
+}
+
+.datosCanal{
+    width: 80%;
+    margin-left: 4%;
+    height: 110px;
+    margin-top: 10px;
+    float: left;
+}
+
+.datosCanal p{
+    font-size: 12px;
+
+}
+
+.pTitulo{
+    margin-bottom: 10px;
+}
+
+.divSuperponer{
+    width: 20%;
+    height: 170px;
+    /* background: blue; */
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+}

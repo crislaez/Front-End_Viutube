@@ -2,6 +2,10 @@
 
 ViuTube es una red social de subir videos (clon de youtube) 
 
+<img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_3.PNG" />
+<hr>
+<img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_4.PNG" />
+<hr>
 <img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto.PNG" />
 <hr>
 <img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_2.PNG" />
