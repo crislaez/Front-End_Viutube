@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react';
 import './Inicio.css';
 //servicios
 import Services from '../../Services/Services';
-//components
-import ComponenteRecomendado from '../../Components/ComponenteRecomendado/ComponenteRecomendado';
 
 function Inicio(props){
 
@@ -23,34 +21,15 @@ function Inicio(props){
 
     //funcion que cargara los 4 videos de recomendados
     const funcionCargarVideosRecomendados = (texto, setArray) => {
-        // Services.getVideoInicio(texto)
-        // .then(response => {
-        //     console.log(response)
-        //     if(response.items){
-        //         console.log(response.items)
-        //         setArray(response.items)
-        //     }
-            
-        // })
+
     };
 
     return(
         <section className='sectionInicio'>
-
            INICIO
-
-           
-
         </section>
     )
 }
 
 export default Inicio;
 
-//<ComponenteRecomendado titulo='Recomendados' arrayRecomendados={arrayRecomendados}></ComponenteRecomendado>
-
-// <ComponenteRecomendado titulo='Tendencias' arrayRecomendados={arrayTendencias}></ComponenteRecomendado>
-
-// <ComponenteRecomendado titulo='Programacion' arrayRecomendados={arrayProgramacion}></ComponenteRecomendado>
-
-// <ComponenteRecomendado titulo='Desarrollo web' arrayRecomendados={arrayDesarrolloWeb}></ComponenteRecomendado>

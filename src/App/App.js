@@ -12,6 +12,7 @@ import Inicio from '../Pages/Inicio/Inicio';
 import Login from '../Pages/Login/Login';
 import Registro from '../Pages/Registro/Registro';
 import Perfil from '../Pages/Perfil/Perfil';
+import Video from '../Pages/Video/Video';
 //servicios
 import Services from '../Services/Services';
 
@@ -141,6 +142,8 @@ function App(props){
                         modificarAsideContenedor={modificarAsideContenedor}
                         >
                         </Perfil></Route>
+
+                        <Route exact path='/video/:id'><Video></Video></Route>
                         
                         <Route path='*'><div>ERROR 404</div></Route>
 

@@ -1,0 +1,157 @@
+.sectionVideo{
+    width: 100%;
+    min-height: 700px;
+    margin-top: 50px;
+    background: #F7F7F7;
+    color: #4C4C4C;
+    float: left;
+}
+
+.contenedorVideoLeft{
+    width: 63%;
+    margin-left: 1%;
+    margin-top: 30px;
+    min-height: 700px;
+    /* border: 1px solid gold; */
+    float: left;
+}
+
+.divCajaVideo{
+    width: 100%;
+    height: 510px;
+    float: left;
+}
+
+.divCajaVideo video{
+    width: 100%;
+    background: black;
+    height: 510px;
+}
+
+.divTituloVideo{
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    /* background: blue; */
+    float: left;
+}
+
+.divTituloVideo h2{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.divDatosVideo{
+    width: 100%;
+    height: 40px;
+    /* background: greenyellow; */
+    font-size: 14px;
+    border-bottom: 1px solid #CECECE;
+    float: left;
+}
+
+.likeDIslike{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.divDatosUsuarioCanal{
+    width: 100%;
+    height: 180px;
+    margin-top: 2px;
+    /* background: gray; */
+    border-bottom: 1px solid #CECECE;
+    float: left;
+}
+
+.divDatosUsuarioVideos{
+    width: 100%;
+    height: 70px;
+    /* background: white; */
+    float: left;
+}
+
+.divLogoCanalVideo{
+    width: 6%;
+    height: 50px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+}
+
+.divLogoCanalVideo img{
+    width: 100%;
+    height: 50px;
+}
+
+.divNombreCanalVideo{
+    width: 70%;
+    height: 70px;
+    margin-left: 1%;
+    float: left;
+}
+
+.divNombreCanalVideo h3{
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+.divNombreCanalVideo p{
+    margin-left: 0px;
+    font-size: 12px;
+}
+
+.divBotonSuscripcion{
+    width: 23%;
+    height: 70px;
+    float: left;
+}
+
+.botonSUscrito{
+    width: 60%;
+    height: 40px;
+    margin-left: 10%;
+    margin-top: 20px;
+    background: #E8E8E8;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.divBotonSuscripcion label{
+    font-size: 23px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.botonSuscribirse{
+    width: 60%;
+    height: 40px;
+    margin-top: 20px;
+    background: #E53030;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    float: right;
+    border: none;
+}
+
+.divDescripcionVideo{
+    width: 70%;
+    height: 100px;
+    margin-left: 7%;
+    font-size: 13px;
+    float: left;
+}
+/* //parte derecha */
+
+.contenedorVideoRight{
+    width: 25%;
+    margin-top: 30px;
+    min-height: 700px;
+    border: 1px solid gold;
+    margin-left: 1%;
+    float: left;
+}
+

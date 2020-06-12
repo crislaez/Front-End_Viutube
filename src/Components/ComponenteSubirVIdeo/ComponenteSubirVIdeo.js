@@ -36,11 +36,16 @@ function ComponenteSubirVIdeo(props){
             Services.addVideo(formData)
             .then(response => {
                 console.log(response)
+                swal ( "Ok" ,  "Video subido correctamente" ,  "success" );
+                //llamamos a la funcion para recargar los videos subidos por el usuario
+                const funcionDatosVideosUsuario = props.funcionDatosVideosUsuario
+                funcionDatosVideosUsuario();
+                // llamamos a la funcion que esta en perfil para cerrar este componente
+                const handleClick = props.handleClick;
+                handleClick();
             })
             .catch(err => console.log(err));
-            // llamamos a la funcion que esta en perfil para cerrar este componente
-            const handleClick = props.handleClick;
-            handleClick();
+            
         }
     };
 
