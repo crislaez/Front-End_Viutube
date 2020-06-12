@@ -8,36 +8,36 @@ import ComponenteRecomendado from '../../Components/ComponenteRecomendado/Compon
 
 function Inicio(props){
 
-    const [arrayRecomendados, setArrayRecomendados] = useState([]); 
-    const [arrayTendencias, setArrayTendencias] = useState([]); 
-    const [arrayProgramacion, setArrayProgramacion] = useState([]); 
-    const [arrayDesarrolloWeb, setArrayDesarrolloWeb] = useState([]); 
+    // const [arrayRecomendados, setArrayRecomendados] = useState([]); 
+    // const [arrayTendencias, setArrayTendencias] = useState([]); 
+    // const [arrayProgramacion, setArrayProgramacion] = useState([]); 
+    // const [arrayDesarrolloWeb, setArrayDesarrolloWeb] = useState([]); 
 
     useEffect( () => {
 
-        funcionCargarVideosRecomendados('mouredev', setArrayRecomendados);
-        funcionCargarVideosRecomendados('eric lostie', setArrayTendencias);
-        funcionCargarVideosRecomendados('juan villalvazo', setArrayProgramacion);
-        funcionCargarVideosRecomendados('victor robles', setArrayDesarrolloWeb);
+        // funcionCargarVideosRecomendados('mouredev', setArrayRecomendados);
+        // funcionCargarVideosRecomendados('eric lostie', setArrayTendencias);
+        // funcionCargarVideosRecomendados('juan villalvazo', setArrayProgramacion);
+        // funcionCargarVideosRecomendados('victor robles', setArrayDesarrolloWeb);
     },[])
 
     //funcion que cargara los 4 videos de recomendados
     const funcionCargarVideosRecomendados = (texto, setArray) => {
-        Services.getVideoInicio(texto)
-        .then(response => {
-            console.log(response)
-            if(response.items){
-                console.log(response.items)
-                setArray(response.items)
-            }
+        // Services.getVideoInicio(texto)
+        // .then(response => {
+        //     console.log(response)
+        //     if(response.items){
+        //         console.log(response.items)
+        //         setArray(response.items)
+        //     }
             
-        })
+        // })
     };
 
     return(
         <section className='sectionInicio'>
 
-           <ComponenteRecomendado titulo='Recomendados' arrayRecomendados={arrayRecomendados}></ComponenteRecomendado>
+           INICIO
 
            
 
@@ -46,6 +46,8 @@ function Inicio(props){
 }
 
 export default Inicio;
+
+//<ComponenteRecomendado titulo='Recomendados' arrayRecomendados={arrayRecomendados}></ComponenteRecomendado>
 
 // <ComponenteRecomendado titulo='Tendencias' arrayRecomendados={arrayTendencias}></ComponenteRecomendado>
 

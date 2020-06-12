@@ -1,0 +1,82 @@
+.divSubirVideos{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    /* margin-left: -16%; */
+    /* margin-left: -5%; */
+    margin-top: -50px;
+    z-index: 2;
+}
+
+.contenedorSubirVideos{
+    width: 30%;
+    height: 500px;
+    margin-top: 100px;
+    margin-left: 42%;
+    background: white;
+    border-radius: 5px;
+    float: left;
+}
+
+.divTituloSubirVideo{
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 3px 3px grey;
+    float: left;
+}
+
+.divTituloSubirVideo h2{
+    margin-left: 32%;
+    margin-top: 10px;    
+    float: left;
+}
+
+.divTituloSubirVideo input{
+    float: right;
+    width: 7%;
+    margin-right: 3%;
+    border-radius: 50%;
+    border: none;
+    height: 30px;
+    margin-top: 10px;
+    background: #71BCFF;
+    color: white;
+    cursor: pointer;
+}
+
+.divTituloSubirVideo input:hover{
+    background: #98CEFE;
+}
+
+.contenedorSubirVideos form{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    height: 400px;
+    /* background: brown; */
+    float: left;
+}
+
+.contenedorSubirVideos form input{
+    width: 80%;
+    margin-left: 10%;
+    height: 50px;   
+    border: none;
+    margin-top: 40px;
+}
+
+.contenedorSubirVideos form input[type='text']{
+    border-bottom: 1px solid gray;
+}
+
+.contenedorSubirVideos form input[type='submit']{
+    border-radius: 5px;
+    background: #71BCFF;
+    color: white;
+    cursor: pointer;
+}
+
+.contenedorSubirVideos form input[type='submit']:hover{
+    background: #98CEFE;
+}

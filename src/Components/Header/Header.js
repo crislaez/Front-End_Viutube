@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom';
 //css
 import './Header.css';
 //font awesome
@@ -40,7 +40,7 @@ function Header(props){
 
     //recargar la pagina cuando pinchemos el logo del header
     const handleClick = () => {
-        window.location.reload(true)
+        props.history.push('/')
     };
     
     //se cargara el componenteOpciones o desaparecera cuando pinchemos en el logo dle usuario
@@ -90,7 +90,7 @@ function Header(props){
             {
                 aparecerdivOpciones
                 ?
-                <ComponenteOpciones datosUsuario={props.datosUsuario}></ComponenteOpciones>
+                <ComponenteOpciones datosUsuario={props.datosUsuario} funcionDatosUsuarioLogueado={props.funcionDatosUsuarioLogueado}></ComponenteOpciones>
                 :
                 <div style={{display:'none'}}></div>
             }
@@ -100,4 +100,4 @@ function Header(props){
     )
 }
 
-export default Header;
+export default withRouter(Header);

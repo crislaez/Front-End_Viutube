@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import {withRouter} from 'react-router-dom'
 //css
 import './ComponenteOpciones.css';
 //font awesome
@@ -27,6 +28,13 @@ function ComponenteOpciones(props){
         });
         };
 
+        const handleCLickIrPerfil = () => {
+            //llamamos a la funcion que esta en app para modificar los datos que le llegaran al componente perfil
+            const funcionDatosUsuarioLogueado = props.funcionDatosUsuarioLogueado
+            funcionDatosUsuarioLogueado(localStorage.getItem('viewinindice'),false);
+            props.history.push('/perfil/'+ localStorage.getItem('viewinindice'))
+        }
+
     return(
         <div className='divComponenteOpciones'>
             <div className='opcionesUsuario'>
@@ -42,7 +50,7 @@ function ComponenteOpciones(props){
             </div>
 
             <div className='opcionesUp'>
-                <p><label><FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon></label>Tu canal</p>
+                <p onClick={handleCLickIrPerfil}><label><FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon></label>Tu canal</p>
                 <p><label><FontAwesomeIcon icon={faEuroSign}></FontAwesomeIcon></label>Suscripciones de pago</p>
                 <p><label><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>ViuTube Studio</p>
                 <p><label><FontAwesomeIcon icon={faUserFriends}></FontAwesomeIcon></label>Cambio de cuenta<label className='labelRight'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></label></p>
@@ -67,4 +75,4 @@ function ComponenteOpciones(props){
     )
 }
 
-export default ComponenteOpciones;
+export default withRouter(ComponenteOpciones);

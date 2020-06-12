@@ -10,7 +10,8 @@ import Footer from '../Components/Footer/Footer';
 //pages
 import Inicio from '../Pages/Inicio/Inicio';
 import Login from '../Pages/Login/Login';
-import Registro from '../Pages/Registro/Registro'
+import Registro from '../Pages/Registro/Registro';
+import Perfil from '../Pages/Perfil/Perfil';
 //servicios
 import Services from '../Services/Services';
 
@@ -24,12 +25,13 @@ function App(props){
     const [desaparecerParrafosAside, setDesaparecerParrafosAside] = useState('block')
     
     const [logueado, seLogueado] = useState(false);
-    const [datosUsuario, setDatosUsuario] = useState([])
+    const [datosUsuario, setDatosUsuario] = useState([]);
+    const [datosUsuarioPerfil, setDatosUsuarioPerfil] = useState([]);
 
     useEffect( () => {
         if(localStorage.getItem('viewinindice')){
             seLogueado(true);
-            datosUsuarioLogueado(localStorage.getItem('viewinindice'));
+            funcionDatosUsuarioLogueado(localStorage.getItem('viewinindice'),true);
         }else{
             seLogueado(false)   
         }
@@ -66,13 +68,18 @@ function App(props){
     };
 
     //funcion para conseguir los datos dle usuario logueao
-    const datosUsuarioLogueado = (data) => {
+    const funcionDatosUsuarioLogueado = (data,bool) => {
         console.log(data)
 
         Services.getUserById(data)
         .then(response => {
             // console.log(response.data[0])
-            setDatosUsuario(response.data[0])
+            if(bool){
+                setDatosUsuario(response.data[0])
+            }else{
+                setDatosUsuarioPerfil(response.data[0])
+            }
+            
         })
         .catch(err => console.log(err))
     };
@@ -87,8 +94,6 @@ function App(props){
         .catch(err => console.log(err))
     }
 
-    // console.log(datosUsuario);
-
     return(
         <div>
             {
@@ -100,6 +105,7 @@ function App(props){
                     logueado={logueado} 
                     datosUsuario={datosUsuario}
                     getYoutubeVideo={getYoutubeVideo}
+                    funcionDatosUsuarioLogueado={funcionDatosUsuarioLogueado}
                     ></Header>
                     <Aside 
                     modificarAsideContenedor={modificarAsideContenedor}
@@ -129,8 +135,16 @@ function App(props){
                         funcionModificarContenedorLogin={funcionModificarContenedorLogin}
                         ></Registro>
                         </Route>
+
+                        <Route exact path='/perfil/:id'>
+                        <Perfil 
+                        datosUsuarioPerfil={datosUsuarioPerfil}
+                        modificarAsideContenedor={modificarAsideContenedor}
+                        >
+                        </Perfil></Route>
                         
                         <Route path='*'><div>ERROR 404</div></Route>
+
                     </Switch>
                 </div>
             {
