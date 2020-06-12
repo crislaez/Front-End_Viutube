@@ -70,7 +70,6 @@ function App(props){
     //funcion para conseguir los datos dle usuario logueao
     const funcionDatosUsuarioLogueado = (data,bool) => {
         console.log(data)
-
         Services.getUserById(data)
         .then(response => {
             // console.log(response.data[0])

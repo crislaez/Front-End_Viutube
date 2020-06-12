@@ -29,9 +29,9 @@ function ComponenteOpciones(props){
         };
 
         const handleCLickIrPerfil = () => {
-            //llamamos a la funcion que esta en app para modificar los datos que le llegaran al componente perfil
-            const funcionDatosUsuarioLogueado = props.funcionDatosUsuarioLogueado
-            funcionDatosUsuarioLogueado(localStorage.getItem('viewinindice'),false);
+            //llamamos a la funcion que esta en Header para cerrar el componente
+            const handleClickEditar = props.handleClickEditar
+            handleClickEditar();
             props.history.push('/perfil/'+ localStorage.getItem('viewinindice'))
         }
 

@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 //css
 import './ComponenteSubirVIdeo.css';
+//alerta
+import swal from 'sweetalert';
+//services
+import Services from '../../Services/Services';
+import moment from 'moment';
 
 function ComponenteSubirVIdeo(props){
 
@@ -11,6 +16,32 @@ function ComponenteSubirVIdeo(props){
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if(!tituloVIdeo){
+            swal ( "Oops" ,  "Rellene el titulo del video correctamente" ,  "error" );
+        }else if(!descripcionVideo){
+            swal ( "Oops" ,  "Rellene la descripcion del video correctamente" ,  "error" );
+        }else if(!video){
+            swal ( "Oops" ,  "Seleccione un video" ,  "error" );
+        }else{
+            let now = moment().format("DD-MM-YYYY") 
+            
+            let formData = new FormData();
+            formData.append("id_video", '');
+            formData.append("id_usuario", localStorage.getItem('viewinindice'));
+            formData.append("titulo_video", tituloVIdeo);
+            formData.append("descripcion_video", descripcionVideo);
+            formData.append("video", video);
+            formData.append("fecha_video", now);
+   
+            Services.addVideo(formData)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => console.log(err));
+            // llamamos a la funcion que esta en perfil para cerrar este componente
+            const handleClick = props.handleClick;
+            handleClick();
+        }
     };
 
     return(

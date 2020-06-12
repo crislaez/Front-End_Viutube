@@ -90,7 +90,7 @@ function Header(props){
             {
                 aparecerdivOpciones
                 ?
-                <ComponenteOpciones datosUsuario={props.datosUsuario} funcionDatosUsuarioLogueado={props.funcionDatosUsuarioLogueado}></ComponenteOpciones>
+                <ComponenteOpciones datosUsuario={props.datosUsuario} funcionDatosUsuarioLogueado={props.funcionDatosUsuarioLogueado} handleClickEditar={handleClickEditar}></ComponenteOpciones>
                 :
                 <div style={{display:'none'}}></div>
             }
