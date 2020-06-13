@@ -31,7 +31,7 @@
     overflow: hidden;
     margin-left: 2%;
     margin-top: 10px;
-    background: plum;
+    /* background: plum; */
     float: left;
 }
 
@@ -48,11 +48,12 @@
     float: left;
 }
 
-.datosCanal p{
+.parrafoVideo{
     font-size: 12px;
 }
 
 .pTitulo{
+    font-size: 17px;
     margin-bottom: 10px;
 }
 

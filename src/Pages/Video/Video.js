@@ -136,7 +136,7 @@ function Video(props){
 
     //usuario logueado
     // console.log(props.datosUsuario)
-
+console.log(arrayMensajesVideo)
     return(
         <article className='sectionVideo'>
             <div className='contenedorVideoLeft'>

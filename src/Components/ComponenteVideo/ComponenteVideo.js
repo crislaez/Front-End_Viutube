@@ -36,7 +36,7 @@ function ComponenteVideo(props){
             </div>
 
             {
-                usuarioLogueado
+                !props.avatar
                 ?
                 <div style={{display:'none'}}></div>
                 :
@@ -47,8 +47,8 @@ function ComponenteVideo(props){
 
             <div className='datosCanal' data-codigo={props.id_video}>
                 <p className='pTitulo' data-codigo={props.id_video}><strong>{props.titulo_video}</strong></p>
-                <p data-codigo={props.id_video}>{props.descripcion_video}</p>                                   
-                <p data-codigo={props.id_video}>{props.fecha_video}</p>                                    
+                <p className='parrafoVideo' data-codigo={props.id_video}>{props.descripcion_video}</p>                                   
+                <p className='parrafoVideo' data-codigo={props.id_video}>{props.fecha_video}</p>                                    
             </div>
         </div>
     )

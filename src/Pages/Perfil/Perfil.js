@@ -64,7 +64,7 @@ function Perfil(props){
 
                 <div className='divNombreCanal'>
                     <h2>{arrayUsuario.nombre_usuario}</h2>
-                    <p>0 cuscriptor</p>
+                    <p>0 suscriptor</p>
                 </div>
 
                 <div className='divBotonesOpciones'>

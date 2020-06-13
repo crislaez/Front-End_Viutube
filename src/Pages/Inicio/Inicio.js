@@ -1,32 +1,48 @@
 import React, {useState, useEffect} from 'react';
 //css
 import './Inicio.css';
+//components
+import ComponenteVideo from '../../Components/ComponenteVideo/ComponenteVideo';
 //servicios
 import Services from '../../Services/Services';
 
 function Inicio(props){
-
-    // const [arrayRecomendados, setArrayRecomendados] = useState([]); 
-    // const [arrayTendencias, setArrayTendencias] = useState([]); 
-    // const [arrayProgramacion, setArrayProgramacion] = useState([]); 
-    // const [arrayDesarrolloWeb, setArrayDesarrolloWeb] = useState([]); 
+    const [isMount, setIsMount] = useState(false);
+    const [arrayVideos, setArrayVideos] = useState([]); 
 
     useEffect( () => {
-
-        // funcionCargarVideosRecomendados('mouredev', setArrayRecomendados);
-        // funcionCargarVideosRecomendados('eric lostie', setArrayTendencias);
-        // funcionCargarVideosRecomendados('juan villalvazo', setArrayProgramacion);
-        // funcionCargarVideosRecomendados('victor robles', setArrayDesarrolloWeb);
+        funcionCargarVideosRecomendados();
+        setIsMount(true);
+        return() => {
+            setIsMount(false);
+        }
     },[])
 
     //funcion que cargara los 4 videos de recomendados
-    const funcionCargarVideosRecomendados = (texto, setArray) => {
-
+    const funcionCargarVideosRecomendados = () => {
+        Services.getAllVideo()
+        .then(response => {
+            console.log(response.data)
+            setArrayVideos(response.data)
+        })
     };
 
     return(
         <section className='sectionInicio'>
-           INICIO
+
+           <div className='contenedorInicioVideos'>
+            {
+                isMount && arrayVideos.toString()
+                ?
+                arrayVideos.map( (dato, key) => {
+                    return(
+                        <ComponenteVideo key={key} id_usuario={dato.id_usuario} avatar={dato.avatar} id_video={dato.id_video} video={dato.video} titulo_video={dato.titulo_video} descripcion_video={dato.descripcion_video} fecha_video={dato.fecha_video}></ComponenteVideo>
+                    )
+                })
+                :
+                <div>Cargando Videos...</div>
+            }
+           </div>
         </section>
     )
 }

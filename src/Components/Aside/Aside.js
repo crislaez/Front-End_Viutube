@@ -12,7 +12,7 @@ function Aside(props){
     return(
         <aside style={{width:`${props.modificarAsideContenedor}`}}>
             <div className='divPrimero'>
-            <label><FontAwesomeIcon icon={faHome}></FontAwesomeIcon></label><p style={{display:`${props.desaparecerParrafosAside}`}}>Pagina principal</p>
+            <Link style={{color:'#4C4C4C'}} to='/'><label><FontAwesomeIcon icon={faHome}></FontAwesomeIcon></label><p style={{display:`${props.desaparecerParrafosAside}`}}>Pagina principal</p></Link>
             <label><FontAwesomeIcon icon={faFire}></FontAwesomeIcon></label><p style={{display:`${props.desaparecerParrafosAside}`}}>Tendencias</p>
             <label><FontAwesomeIcon icon={faYoutube}></FontAwesomeIcon></label><p style={{display:`${props.desaparecerParrafosAside}`}}>Suscripciones</p>
             </div>

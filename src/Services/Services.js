@@ -38,6 +38,11 @@ const getAllComentByIdVideo = (data) => {
     return fetch(process.env.REACT_APP_URL+'/getAllComentByIdVideo/'+data,{method:'GET'}).then(data => data.json())
 };
 
+//todos los videos
+const getAllVideo = () => {
+    return fetch(process.env.REACT_APP_URL+'/getAllVideo',{method:'GET'}).then(data => data.json())
+}
+
 
 export default 
     {
@@ -48,5 +53,6 @@ export default
         getVideosByIdUser,
         getVideoByIdVideo,
         addComent,
-        getAllComentByIdVideo
+        getAllComentByIdVideo,
+        getAllVideo
     }
