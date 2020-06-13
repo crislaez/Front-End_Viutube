@@ -73,16 +73,17 @@
 
 .divLogoCanalVideo{
     width: 6%;
-    height: 50px;
+    height: 45px;
     margin-top: 10px;
     overflow: hidden;
+    cursor: pointer;
     border-radius: 50%;
     float: left;
 }
 
 .divLogoCanalVideo img{
     width: 100%;
-    height: 50px;
+    height: 45px;
 }
 
 .divNombreCanalVideo{
@@ -155,3 +156,59 @@
     float: left;
 }
 
+/* contador comentarios  */
+.contadorComentarios{
+    width: 100%;
+    height: 50px;
+    /* background: blue; */
+    float: left;
+}
+
+.contadorComentarios p{
+    margin-top: 20px;
+}
+/* formulario */
+.divFormulario{
+    width: 100%;
+    height: 100px;
+    /* background: blueviolet; */
+    float: left;
+}
+
+.divFormulario form{
+    width: 90%;
+    margin-left: 2%;
+    height: 80px;
+    margin-top: 10px;
+    /* background: blue; */
+    float: left;
+}
+
+.divFormulario form input[type='text']{
+    width: 80%;
+    height: 30px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid gray;
+}
+
+.divFormulario form input[type='submit']{
+    width: 15%;
+    height: 40px;
+    margin-left: 5%;
+    border: none;
+    background: #71BCFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.divFormulario form input[type='submit']:hover{
+    background: #98CEFE;
+}
+
+.cajaComentarios{
+    width: 100%;
+    min-height: 100px;
+    float: left;
+}

@@ -68,7 +68,7 @@ function Perfil(props){
                 </div>
 
                 <div className='divBotonesOpciones'>
-                    <input style={{marginLeft:'47%'}} type='button' value='Editar'></input>
+                    <input style={{marginLeft:'60%'}} type='button' value='Editar'></input>
                     <input type='button' value='Subir video' onClick={handleClick}></input>
                 </div>
             </div>

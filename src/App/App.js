@@ -76,8 +76,6 @@ function App(props){
             // console.log(response.data[0])
             if(bool){
                 setDatosUsuario(response.data[0])
-            }else{
-                setDatosUsuarioPerfil(response.data[0])
             }
             
         })
@@ -143,7 +141,7 @@ function App(props){
                         >
                         </Perfil></Route>
 
-                        <Route exact path='/video/:id'><Video></Video></Route>
+                        <Route exact path='/video/:id'><Video datosUsuario={datosUsuario}></Video></Route>
                         
                         <Route path='*'><div>ERROR 404</div></Route>
 

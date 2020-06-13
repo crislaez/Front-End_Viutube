@@ -55,7 +55,10 @@ function Login(props){
                 console.log()
                 if(response.data[0]){
                     swal("Logueado!", "Logueado correctamente", "success");
+                    //guardamos el id del usuario en el locakStorage
                     localStorage.setItem('viewinindice',response.data[0].id_usuario);
+                    //guardamos el token en el localStorage
+                    localStorage.setItem('viutubeToken',response.viutubeToken)
                     //llamamos a la funcion que esta arriba
                     handleClick();
                     props.history.push('/');

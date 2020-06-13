@@ -23,6 +23,8 @@ function ComponenteOpciones(props){
         .then((willDelete) => {
             if (willDelete) {
                localStorage.removeItem('viewinindice');
+               localStorage.removeItem('viutubeToken');
+               props.history.push('/')
                window.location.reload(true)
             }            
         });

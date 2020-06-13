@@ -1,0 +1,46 @@
+.divContenedorComentario{
+    width: 100%;
+    height: 100px;
+    /* background: blue; */
+    float: left;
+}
+
+.divComentario{
+    width: 90%;
+    height: 80px;
+    margin-left: 1%;
+    margin-top: 10px;
+    /* background: brown; */
+    float: left;
+}
+
+.divComentario label{
+    margin-left: 1%;
+    font-size: 13px;
+    float: left;
+}
+
+.divComentario p{
+    font-size: 13px;
+    float: left;
+}
+
+.pMensaje{
+    margin-top: 10px;
+    clear: both;
+}
+
+.divLogoCanalVideo{
+    width: 6%;
+    height: 45px;
+    margin-top: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%;
+    float: left;
+}
+
+.divLogoCanalVideo img{
+    width: 100%;
+    height: 45px;
+}
