@@ -27,8 +27,13 @@ function Inicio(props){
         })
     };
 
+// console.log(arrayVideos)
+
     return(
         <section className='sectionInicio'>
+            <div className='divTituloInicio'>
+                <h2>Recomendados</h2>
+            </div>
 
            <div className='contenedorInicioVideos'>
             {
@@ -36,7 +41,17 @@ function Inicio(props){
                 ?
                 arrayVideos.map( (dato, key) => {
                     return(
-                        <ComponenteVideo key={key} id_usuario={dato.id_usuario} avatar={dato.avatar} id_video={dato.id_video} video={dato.video} titulo_video={dato.titulo_video} descripcion_video={dato.descripcion_video} fecha_video={dato.fecha_video}></ComponenteVideo>
+                        <ComponenteVideo 
+                        key={key} 
+                        id_usuario={dato.id_usuario} 
+                        avatar={dato.avatar} 
+                        id_video={dato.id_video} 
+                        video={dato.video} 
+                        titulo_video={dato.titulo_video} 
+                        descripcion_video={dato.descripcion_video} 
+                        fecha_video={dato.fecha_video}
+                        nombre_usuario={dato.nombre_usuario}
+                        ></ComponenteVideo>
                     )
                 })
                 :

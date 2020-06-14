@@ -4,25 +4,42 @@ import './Perfil.css';
 //components
 import ComponenteSubirVIdeo from '../../Components/ComponenteSubirVIdeo/ComponenteSubirVIdeo';
 import ComponenteVideo from '../../Components/ComponenteVideo/ComponenteVideo';
+import BotonesSuscripcion from '../../Components/BotonesSuscripcion/BotonesSuscripcion';
 //servicios
 import Services from '../../Services/Services';
+// //font awesome
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {faThumbsUp, faThumbsDown, faBell} from '@fortawesome/free-solid-svg-icons';
 
 function Perfil(props){
 
-    const [isMount, setIsMount] = useState(false)
-    const [arrayUsuario, setArrayUsuario] = useState([]);
-    const [arrayVideosUsuarios, setArrayVideosUIsuarios] = useState([]); 
-    const [aparecerDivSubirVideo, setAparecerDivSubirVideo] = useState(false);
+    const [idUsuarioPerfil, setIdUsuarioPerfil] = useState('')
+    const [isMount, setIsMount] = useState(false); //si el componente esta montado
+    const [arrayUsuario, setArrayUsuario] = useState([]);//muestra todos los datos del usuario del perfil
+    const [arrayVideosUsuarios, setArrayVideosUIsuarios] = useState([]); //muiestra todos los videos del usuario
+    const [aparecerDivSubirVideo, setAparecerDivSubirVideo] = useState(false); //variable que cargara unos componentes o otrtos, dependiendo si el usuario del perfil es el logueado
 
+    const [perfilUsuarioEsLogueado, setPerfilUsuarioEsLogueado] = useState(false)
+    // const [isSuscribe, setIsSuscribe] = useState(false)
+    
     useEffect( () => {
         setIsMount(true)
+        setIdUsuarioPerfil(window.location.href.split('/')[4])
         funcionDatosUsuariosPerfil(window.location.href.split('/')[4]);
         funcionDatosVideosUsuario();
+        console.log(window.location.href.split('/')[4])
 
+        //si este perfil es del usuario loguado
+        if(window.location.href.split('/')[4] == localStorage.getItem('viewinindice')){
+            setPerfilUsuarioEsLogueado(true);
+        }else{
+            setPerfilUsuarioEsLogueado(false);
+        }
+        console.log(idUsuarioPerfil)
         return () => {
             setIsMount(false)
         }        
-    },[window.location.href.split('/')[4]]);
+    },[idUsuarioPerfil]);
 
     //funcion para conseguir los datos del usuario seleccionado
     const funcionDatosUsuariosPerfil = (data) => {
@@ -40,7 +57,7 @@ function Perfil(props){
     const funcionDatosVideosUsuario = () => {
         Services.getVideosByIdUser(window.location.href.split('/')[4])
         .then(response => {
-            console.log(response)
+            // console.log(response)
             setArrayVideosUIsuarios(response.data)
         })
         .catch(err => console.log(err))
@@ -67,9 +84,21 @@ function Perfil(props){
                     <p>0 suscriptor</p>
                 </div>
 
-                <div className='divBotonesOpciones'>
-                    <input style={{marginLeft:'60%'}} type='button' value='Editar'></input>
-                    <input type='button' value='Subir video' onClick={handleClick}></input>
+                <div className='divBotonesOpcionesPerfil'>
+                {
+                    perfilUsuarioEsLogueado
+                    ?
+                    <div>
+                        <input className='bLogueado' style={{marginLeft:'20%'}} type='button' value='Editar'></input>
+                        <input className='bLogueado' type='button' value='Subir video' onClick={handleClick}></input>
+                    </div>
+                    :
+                    <div className='divSuscripcionPerfil'>
+                    
+                    <BotonesSuscripcion></BotonesSuscripcion>
+                    </div>
+                }
+                    
                 </div>
             </div>
 

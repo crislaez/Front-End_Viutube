@@ -35,6 +35,7 @@ function ComponenteOpciones(props){
             const handleClickEditar = props.handleClickEditar
             handleClickEditar();
             props.history.push('/perfil/'+ localStorage.getItem('viewinindice'))
+            window.location.reload(true)
         }
 
     return(

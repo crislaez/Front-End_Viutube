@@ -1,0 +1,40 @@
+.sBotonSus{
+    width: 100%;
+    height: 70px;
+    float: left;
+}
+.sBotonSus label{
+    margin-top: 25px;
+    font-size: 20px;
+    margin-left: 2%;
+    float: left;
+}
+
+.sBotonSus input{
+    width: 35%;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 50%;
+    float: left;
+    border: none;
+}
+
+.botonSuscribirsePerfil{
+    background: #E53030;
+    color: white;
+}
+
+.botonSuscribirsePerfil:hover{
+    background: #FE8484;
+}
+
+.botonSuscritoPerfil{   
+    background: #E8E8E8;    
+    margin-left: 10%;    
+}
+
+.botonSuscritoPerfil:hover{
+    background: #F3F3F3 ;
+}

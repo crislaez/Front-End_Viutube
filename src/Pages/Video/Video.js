@@ -13,31 +13,38 @@ import Services from '../../Services/Services';
 import swal from 'sweetalert';
 //componente
 import ContenedorComentario from '../../Components/ContenedorComentario/ContenedorComentario';
-
+import BotonesSuscripcion from '../../Components/BotonesSuscripcion/BotonesSuscripcion';
 
 function Video(props){
 
-    const [isMount, setIsMount] = useState(false);
-    const [arrayDatosVideo, setArrayDatosVideos] = useState([]);
-    const [arrayMensajesVideo, setArrayMensajesVideo] = useState([]);
+    const [isMount, setIsMount] = useState(false);//si el componente esta montado o no
+    const [arrayDatosVideo, setArrayDatosVideos] = useState([]);//array de los videos por el id usuario
+    const [arrayMensajesVideo, setArrayMensajesVideo] = useState([]);//array con todos los mensajes del video
 
-    const [isSuscribe, setIsSuscribe] = useState(true);
+    const [isSuscribe, setIsSuscribe] = useState(false); //variable para saber si esta suscrito o no
 
-    const [colorLike, setColorLike] = useState('grey');
-    const [colorDisLike, setColorDislike] = useState('grey');
+    const [colorLike, setColorLike] = useState('grey');//color para el like
+    const [colorDisLike, setColorDislike] = useState('grey');//color para el dislike
 
-    const [comentario, setComentario] = useState('');
+    const [comentario, setComentario] = useState('');//variable donde se guardara el comentario
 
+    const [isLogin, setIslogin] = useState(false)//para saber que este video es nuestro o no y que no aparezca el boton suscribirse
 
     useEffect( () => {
         setIsMount(true);
         funcionVideoPorId(window.location.href.split('/')[4]);
         funcionMensajesPorVIdeo(window.location.href.split('/')[4]);
 
+        if(arrayDatosVideo.id_usuario != localStorage.getItem('viewinindice')){
+            setIslogin(false);
+        }else{
+            setIslogin(true);
+        }
+
         return() => {
             setIsMount(false);
         }
-    },[window.location.href.split('/')[4]])
+    },[arrayDatosVideo.id_usuario])
 
     //funcion para conseguir los datos dle video
     const funcionVideoPorId = (data) => {
@@ -90,23 +97,6 @@ function Video(props){
         setComentario('')
     };
 
-    //funcion para desuscribirse
-    const handleClickDesuscribirse = () => {
-        setIsSuscribe(false);
-        // console.log(arrayDatosVideo.id_usuario)
-    };
-
-    //funcion para suscribirse
-    const handleClickSUscribirse = () => {
-        setIsSuscribe(true)
-        // console.log(arrayDatosVideo.id_usuario)
-    };
-
-    //funcion para las notificaciones
-    const handleClickNotificacion = () => {
-        console.log('Notificaciones')
-    };
-
     //funcion que redirecciona al canal del perfil echo click
     const handleClickIrAPerfil = () => {
         props.history.push(`/perfil/${arrayDatosVideo.id_usuario}`)
@@ -134,8 +124,9 @@ function Video(props){
         }
     };
 
-    //usuario logueado
-    // console.log(props.datosUsuario)
+    // console.log(arrayDatosVideo.id_usuario)
+    // console.log(localStorage.getItem('viewinindice'))
+    // console.log(isLogin)
 console.log(arrayMensajesVideo)
     return(
         <article className='sectionVideo'>
@@ -166,18 +157,17 @@ console.log(arrayMensajesVideo)
                             <p>0 suscriptores</p>
                         </div>
 
-                        <div className='divBotonSuscripcion'>
-                            {
-                                isSuscribe
-                                ?
-                                <div>
-                                    <input className='botonSUscrito' type='button' value='SUSCRITO' onClick={handleClickDesuscribirse}></input>
-                                    <label onClick={handleClickNotificacion}><FontAwesomeIcon icon={faBell}></FontAwesomeIcon></label>
-                                </div>
-                                :
-                                <input className='botonSuscribirse' type='button' value='SUSCRIBIRSE' onClick={handleClickSUscribirse}></input>
-                            }                            
-                        </div>
+                        {
+                            isLogin
+                            ?
+                            <div style={{display:'none'}}></div>
+                            :
+                            <div className='divBotonSuscripcion'>
+                            
+                            <BotonesSuscripcion></BotonesSuscripcion>                           
+                            </div>
+                        }
+                        
                     </div>
 
                     <div className='divDescripcionVideo'>  
@@ -190,7 +180,7 @@ console.log(arrayMensajesVideo)
                 </div>
                 
                 <div className='divFormulario'>
-                    <div className='divLogoCanalVideo' onClick={handleClickIrAPerfil}>
+                    <div className='divLogoCanalVideo'>
                         <img src={props.datosUsuario.avatar}></img>
                     </div>
 

@@ -6,3 +6,15 @@
     color: #4C4C4C;
     float: left;
 }
+
+.divTituloInicio{
+    width: 100%;
+    height: 70px;
+    float: left;
+}
+
+.divTituloInicio h2{
+    margin-left: 2%;
+    font-size: 17px;
+    margin-top: 40px;
+}

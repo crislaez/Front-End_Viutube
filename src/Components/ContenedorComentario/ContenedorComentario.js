@@ -1,13 +1,20 @@
 import React, {useState, useEffect} from 'react';
+import {withRouter} from 'react-router-dom'
 //css
 import './ContenedorComentario.css';
 
 function ContenedorComentario(props){
 
+    //funcion para ir al perfil del usuario
+    const handleClick = (event) => {
+        let idUsuario = event.target.dataset.codigousuario;
+        props.history.push(`/perfil/${idUsuario}`)
+    }
+
     return(
-        <div className='divContenedorComentario' data-codigomensaje={props.id_comentario} data-codigousuario={props.id_usuario}>
+        <div className='divContenedorComentario' data-codigomensaje={props.id_comentario} >
             <div className='divLogoCanalVideo'>
-                <img src={props.avatar}></img>
+                <img src={props.avatar} alt={props.avatar} data-codigousuario={props.id_usuario} onClick={handleClick}></img>
             </div>
             <div className='divComentario'>
                 <p><strong>{props.nombre_usuario}</strong></p>
@@ -18,4 +25,4 @@ function ContenedorComentario(props){
     )
 }
 
-export default ContenedorComentario;
+export default withRouter(ContenedorComentario);
