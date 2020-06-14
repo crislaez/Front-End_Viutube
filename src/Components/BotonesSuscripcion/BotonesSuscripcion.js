@@ -14,6 +14,7 @@ function BotonesSuscripcion(props){
     const handleClickDesuscribirse = () => {
         setIsSuscribe(false);
         console.log('dentro')
+        console.log(props.id_usuario)
         // console.log(arrayDatosVideo.id_usuario)
     };
 
@@ -21,6 +22,7 @@ function BotonesSuscripcion(props){
     const handleClickSUscribirse = () => {
         setIsSuscribe(true)
         console.log('fuera')
+        console.log(props.id_usuario)
         // console.log(arrayDatosVideo.id_usuario)
     };
 
@@ -29,6 +31,7 @@ function BotonesSuscripcion(props){
         console.log('Notificaciones')
     };
 
+    
     return(
         <div className='sBotonSus'>
         {

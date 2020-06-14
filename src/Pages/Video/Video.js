@@ -14,6 +14,8 @@ import swal from 'sweetalert';
 //componente
 import ContenedorComentario from '../../Components/ContenedorComentario/ContenedorComentario';
 import BotonesSuscripcion from '../../Components/BotonesSuscripcion/BotonesSuscripcion';
+import AsideRight from '../../Components/AsideRight/AsideRight';
+
 
 function Video(props){
 
@@ -127,7 +129,7 @@ function Video(props){
     // console.log(arrayDatosVideo.id_usuario)
     // console.log(localStorage.getItem('viewinindice'))
     // console.log(isLogin)
-console.log(arrayMensajesVideo)
+// console.log(arrayMensajesVideo)
     return(
         <article className='sectionVideo'>
             <div className='contenedorVideoLeft'>
@@ -148,7 +150,7 @@ console.log(arrayMensajesVideo)
                 
                 <div className='divDatosUsuarioCanal'>
                     <div className='divDatosUsuarioVideos'>
-                        <div className='divLogoCanalVideo' onClick={handleClickIrAPerfil}>
+                        <div className='divLogoCanalVideoVideo' onClick={handleClickIrAPerfil}>
                             <img src={arrayDatosVideo.avatar}></img>
                         </div>
 
@@ -164,7 +166,8 @@ console.log(arrayMensajesVideo)
                             :
                             <div className='divBotonSuscripcion'>
                             
-                            <BotonesSuscripcion></BotonesSuscripcion>                           
+                            <BotonesSuscripcion id_usuario={arrayDatosVideo.id_usuario}></BotonesSuscripcion>   
+                                                    
                             </div>
                         }
                         
@@ -180,7 +183,7 @@ console.log(arrayMensajesVideo)
                 </div>
                 
                 <div className='divFormulario'>
-                    <div className='divLogoCanalVideo'>
+                    <div className='divLogoCanalVideoVideo'>
                         <img src={props.datosUsuario.avatar}></img>
                     </div>
 
@@ -215,8 +218,7 @@ console.log(arrayMensajesVideo)
 
             </div>            
 
-            <div className='contenedorVideoRight'>
-            </div>
+            <AsideRight></AsideRight>
         </article>
     )
 }

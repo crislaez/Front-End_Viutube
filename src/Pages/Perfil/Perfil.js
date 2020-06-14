@@ -68,6 +68,7 @@ function Perfil(props){
         setAparecerDivSubirVideo(!aparecerDivSubirVideo);
     };
 
+    // console.log(arrayUsuario)
     return(
         <article className='sectionPerfil'>
             <div className='divBanner'>
@@ -95,7 +96,7 @@ function Perfil(props){
                     :
                     <div className='divSuscripcionPerfil'>
                     
-                    <BotonesSuscripcion></BotonesSuscripcion>
+                    <BotonesSuscripcion id_usuario={arrayUsuario.id_usuario}></BotonesSuscripcion>
                     </div>
                 }
                     

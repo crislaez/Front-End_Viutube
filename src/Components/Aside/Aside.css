@@ -3,7 +3,7 @@ aside{
     margin-top: 50px;
     background: white;
     color: #4C4C4C;
-    position: fixed;    
+    position: fixed;        
 }
 aside:hover{
     overflow-y: scroll;

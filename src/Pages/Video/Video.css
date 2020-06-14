@@ -71,9 +71,9 @@
     float: left;
 }
 
-.divLogoCanalVideo{
+.divLogoCanalVideoVideo{
     width: 6%;
-    height: 45px;
+    height: 50px;
     margin-top: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -81,9 +81,9 @@
     float: left;
 }
 
-.divLogoCanalVideo img{
+.divLogoCanalVideoVideo img{
     width: 100%;
-    height: 45px;
+    height: 50px;
 }
 
 .divNombreCanalVideo{
@@ -145,16 +145,6 @@
     height: 100px;
     margin-left: 7%;
     font-size: 13px;
-    float: left;
-}
-/* //parte derecha */
-
-.contenedorVideoRight{
-    width: 25%;
-    margin-top: 30px;
-    min-height: 700px;
-    border: 1px solid gold;
-    margin-left: 1%;
     float: left;
 }
 

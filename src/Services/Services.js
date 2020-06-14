@@ -43,6 +43,15 @@ const getAllVideo = () => {
     return fetch(process.env.REACT_APP_URL+'/getAllVideo',{method:'GET'}).then(data => data.json())
 }
 
+//mostrar 10 videos
+const get10Video = () => {
+     return fetch(process.env.REACT_APP_URL+'/get10Video', {method:'GET'}).then(data => data.json())
+}
+
+//seguis a usuarios
+const addFollow = (data) => {
+    return fetch('/addFollow',{method:'GET',body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}})
+}
 
 export default 
     {
@@ -54,5 +63,7 @@ export default
         getVideoByIdVideo,
         addComent,
         getAllComentByIdVideo,
-        getAllVideo
+        getAllVideo,
+        get10Video,
+        addFollow
     }
