@@ -1,6 +1,6 @@
 ## (front-end) ViuTube
 
-ViuTube es una red social de subir videos (clon de youtube) 
+ViuTube es una red social de subir videos (clon de youtube, en construccion) 
 
 <img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_3.PNG" />
 <hr>
@@ -11,6 +11,10 @@ ViuTube es una red social de subir videos (clon de youtube)
 <img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_2.PNG" />
 <hr>
 <img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_5.PNG" />
+<hr>
+<img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_6.PNG" />
+<hr>
+<img src="https://github.com/crislaez/Front-End_Viutube/blob/master/src/Img/foto_proyecto_7.PNG" />
 <hr>
 
 ### Que hace el proyecto

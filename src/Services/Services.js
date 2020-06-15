@@ -73,10 +73,40 @@ const addLike = (data) => {
     return fetch(process.env.REACT_APP_URL+'/addLike',{method:'POST', body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
 }
 
+//quitar like
 const removeLike = (data, data2) => {
     return fetch(process.env.REACT_APP_URL+'/removeLike/'+data+'/'+data2,{method:'DELETE', headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
 }
 
+//dar dislike
+const addDislike = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/addDislike', {method:'POST',body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+//quitar dislike
+const removeDislike = (data, data2) => {
+    return fetch(process.env.REACT_APP_URL+'/removeDislike/'+data+'/'+data2, {method:'DELETE',headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+//comprobar like
+const checkLike = (data, data2) => {
+    return fetch(process.env.REACT_APP_URL+'/checkLike/'+data+'/'+data2,{method:'GET'}).then(data => data.json())
+}
+
+//comprobar dislike
+const checkDislike = (data, data2) => {
+    return fetch(process.env.REACT_APP_URL+'/checkDislike/'+data+'/'+data2,{method:'GET'}).then(data => data.json())
+}
+
+//cantidad de likes
+const countLikeByIdVideo = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/countLikeByIdVideo/'+data,{method:'GET'}).then(data => data.json())
+}
+
+//cantidad de dislikes
+const countDislikeByIdVideo = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/countDislikeByIdVideo/'+data, {method:'GET'}).then(data => data.json())
+}
 
 export default 
     {
@@ -95,5 +125,11 @@ export default
         checkFollow,
         getFollowByIdUser,
         addLike,
-        removeLike
+        removeLike,
+        addDislike,
+        removeDislike,
+        checkLike,
+        checkDislike,
+        countLikeByIdVideo,
+        countDislikeByIdVideo
     }

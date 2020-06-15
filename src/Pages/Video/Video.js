@@ -47,7 +47,7 @@ function Video(props){
     const funcionVideoPorId = (data) => {
         Services.getVideoByIdVideo(data)
         .then(response => {
-            console.log(response.data[0])
+            // console.log(response.data[0])
             setArrayDatosVideos(response.data[0])
         })
     };
