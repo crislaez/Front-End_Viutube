@@ -50,7 +50,22 @@ const get10Video = () => {
 
 //seguis a usuarios
 const addFollow = (data) => {
-    return fetch('/addFollow',{method:'GET',body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}})
+    return fetch(process.env.REACT_APP_URL+'/addFollow',{method:'POST',body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+//dejar de seguir
+const removeFollow = (data, data2) => {
+    return fetch(process.env.REACT_APP_URL+'/removeFollow/'+data+'/'+data2,{method:'DELETE',headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+//comprobar si un usuario suigue al otro
+const checkFollow = (data,data2) => {
+    return fetch(process.env.REACT_APP_URL+'/checkFollow/'+data+'/'+data2,{method:'GET'}).then(data => data.json())
+}
+
+//conseguir todos los usuarios qeu se sigue
+const getFollowByIdUser = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/getFollowByIdUser/'+data, {method:'GET'}).then(data => data.json())
 }
 
 export default 
@@ -65,5 +80,8 @@ export default
         getAllComentByIdVideo,
         getAllVideo,
         get10Video,
-        addFollow
+        addFollow,
+        removeFollow,
+        checkFollow,
+        getFollowByIdUser
     }

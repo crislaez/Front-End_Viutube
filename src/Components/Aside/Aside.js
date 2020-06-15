@@ -6,6 +6,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser, faFire, faHome, faPhotoVideo, faMusic, faSyncAlt, faVolleyballBall, faGamepad, faFilm, faFileVideo, faPlusCircle, faCogs, faQuestion, faFlag, faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons';
 import {faYoutube, faSteam} from '@fortawesome/free-brands-svg-icons'
 import {faNewspaper, faLightbulb} from '@fortawesome/free-regular-svg-icons'
+//components
+import SuscripcionesAside from '../SuscripcionesAside/SuscripcionesAside';
 
 function Aside(props){
 
@@ -25,9 +27,7 @@ function Aside(props){
             {
                 props.logueado
                 ?
-                <div className='divTercero' style={{display:`${props.desaparecerParrafosAside}`}}>
-                    <h3>SUSCRIPCIONES</h3>
-                </div>
+                <SuscripcionesAside desaparecerParrafosAside={props.desaparecerParrafosAside} funcionConseguirUsuariosSeguidos={props.funcionConseguirUsuariosSeguidos} arrayUsuariosSegudos={props.arrayUsuariosSegudos}></SuscripcionesAside>
                 :
                 <div className='divTercero' style={{display:`${props.desaparecerParrafosAside}`}}>
                     <p>Inicia sesión para dar Me gusta a vídeos, 

@@ -96,7 +96,7 @@ function Perfil(props){
                     :
                     <div className='divSuscripcionPerfil'>
                     
-                    <BotonesSuscripcion id_usuario={arrayUsuario.id_usuario}></BotonesSuscripcion>
+                    <BotonesSuscripcion id_usuario={arrayUsuario.id_usuario} funcionConseguirUsuariosSeguidos={props.funcionConseguirUsuariosSeguidos}></BotonesSuscripcion>
                     </div>
                 }
                     

@@ -23,8 +23,6 @@ function Video(props){
     const [arrayDatosVideo, setArrayDatosVideos] = useState([]);//array de los videos por el id usuario
     const [arrayMensajesVideo, setArrayMensajesVideo] = useState([]);//array con todos los mensajes del video
 
-    const [isSuscribe, setIsSuscribe] = useState(false); //variable para saber si esta suscrito o no
-
     const [colorLike, setColorLike] = useState('grey');//color para el like
     const [colorDisLike, setColorDislike] = useState('grey');//color para el dislike
 
@@ -166,7 +164,7 @@ function Video(props){
                             :
                             <div className='divBotonSuscripcion'>
                             
-                            <BotonesSuscripcion id_usuario={arrayDatosVideo.id_usuario}></BotonesSuscripcion>   
+                            <BotonesSuscripcion id_usuario={arrayDatosVideo.id_usuario} funcionConseguirUsuariosSeguidos={props.funcionConseguirUsuariosSeguidos}></BotonesSuscripcion>   
                                                     
                             </div>
                         }

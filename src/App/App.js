@@ -29,10 +29,13 @@ function App(props){
     const [datosUsuario, setDatosUsuario] = useState([]);
     const [datosUsuarioPerfil, setDatosUsuarioPerfil] = useState([]);
 
+    const [arrayUsuariosSegudos, setArrayUsuariosSeguidos] = useState([])
+
     useEffect( () => {
         if(localStorage.getItem('viewinindice')){
             seLogueado(true);
             funcionDatosUsuarioLogueado(localStorage.getItem('viewinindice'),true);
+            // funcionConseguirUsuariosSegidos();
         }else{
             seLogueado(false)   
         }
@@ -92,6 +95,17 @@ function App(props){
         .catch(err => console.log(err))
     }
 
+    //funcion que cargara a todos los usuarios que seguimos que estara en aside
+    const funcionConseguirUsuariosSeguidos = () => {
+        if(localStorage.getItem('viewinindice')){
+            Services.getFollowByIdUser(localStorage.getItem('viewinindice'))
+            .then(response => {
+                // console.log(response.data);
+                setArrayUsuariosSeguidos(response.data)
+            })
+        }      
+    }
+
     return(
         <div>
             {
@@ -109,6 +123,8 @@ function App(props){
                     modificarAsideContenedor={modificarAsideContenedor}
                     desaparecerParrafosAside={desaparecerParrafosAside}
                     logueado={logueado}
+                    funcionConseguirUsuariosSeguidos={funcionConseguirUsuariosSeguidos}
+                    arrayUsuariosSegudos={arrayUsuariosSegudos}
                     ></Aside>
                 </div>
                 :
@@ -138,10 +154,15 @@ function App(props){
                         <Perfil 
                         datosUsuarioPerfil={datosUsuarioPerfil}
                         modificarAsideContenedor={modificarAsideContenedor}
+                        funcionConseguirUsuariosSeguidos={funcionConseguirUsuariosSeguidos}
                         >
                         </Perfil></Route>
 
-                        <Route exact path='/video/:id'><Video datosUsuario={datosUsuario}></Video></Route>
+                        <Route exact path='/video/:id'>
+                        <Video 
+                        datosUsuario={datosUsuario}
+                        funcionConseguirUsuariosSeguidos={funcionConseguirUsuariosSeguidos}
+                        ></Video></Route>
                         
                         <Route path='*'><div>ERROR 404</div></Route>
 
