@@ -15,16 +15,13 @@ import swal from 'sweetalert';
 import ContenedorComentario from '../../Components/ContenedorComentario/ContenedorComentario';
 import BotonesSuscripcion from '../../Components/BotonesSuscripcion/BotonesSuscripcion';
 import AsideRight from '../../Components/AsideRight/AsideRight';
-
+import ComponenteLike from '../../Components/ComponenteLike/ComponenteLike';
 
 function Video(props){
 
     const [isMount, setIsMount] = useState(false);//si el componente esta montado o no
     const [arrayDatosVideo, setArrayDatosVideos] = useState([]);//array de los videos por el id usuario
     const [arrayMensajesVideo, setArrayMensajesVideo] = useState([]);//array con todos los mensajes del video
-
-    const [colorLike, setColorLike] = useState('grey');//color para el like
-    const [colorDisLike, setColorDislike] = useState('grey');//color para el dislike
 
     const [comentario, setComentario] = useState('');//variable donde se guardara el comentario
 
@@ -102,31 +99,7 @@ function Video(props){
         props.history.push(`/perfil/${arrayDatosVideo.id_usuario}`)
     };
 
-    //funcion like
-    const funcionLike = () => {       
-        if(colorLike == 'grey'){
-            setColorLike('blue');
-            // document.querySelector('#bLike').disabled = true;
-            // document.querySelector('#bDislike').disabled = false;
-        }else{
-            setColorLike('grey');
-            // document.querySelector('#bLike').disabled = false;
-            // document.querySelector('#bDislike').disabled = true;
-        }        
-    };
 
-    //funciion dislike
-    const funcionDislike = () => {
-        if(colorDisLike == 'grey'){
-            setColorDislike('blue');
-        }else{
-            setColorDislike('grey');
-        }
-    };
-
-    // console.log(arrayDatosVideo.id_usuario)
-    // console.log(localStorage.getItem('viewinindice'))
-    // console.log(isLogin)
 // console.log(arrayMensajesVideo)
     return(
         <article className='sectionVideo'>
@@ -138,14 +111,9 @@ function Video(props){
                 <div className='divTituloVideo'>
                     <h2>{arrayDatosVideo.titulo_video}</h2>
                 </div>
+           
+                <ComponenteLike arrayDatosVideo={arrayDatosVideo}></ComponenteLike>
 
-                <div className='divDatosVideo'>
-                    <label>0 visualizaciones</label>
-                    <label style={{marginLeft:'5%'}}>publicado: {arrayDatosVideo.fecha_video}</label>
-                    <label onClick={funcionLike} className='likeDIslike' style={{marginLeft:'25%'}}><FontAwesomeIcon id='bLike' style={{marginRight:'1%', color:`${colorLike}`}} icon={faThumbsUp}></FontAwesomeIcon>0</label>
-                    <label onClick={funcionDislike} className='likeDIslike' style={{marginLeft:'5%'}}><FontAwesomeIcon id='bDislike' style={{marginRight:'1%', color:`${colorDisLike}`}} icon={faThumbsDown}></FontAwesomeIcon>0</label>
-                </div>
-                
                 <div className='divDatosUsuarioCanal'>
                     <div className='divDatosUsuarioVideos'>
                         <div className='divLogoCanalVideoVideo' onClick={handleClickIrAPerfil}>

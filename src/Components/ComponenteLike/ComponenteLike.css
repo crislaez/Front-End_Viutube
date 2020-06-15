@@ -1,0 +1,16 @@
+.divDatosVideo{
+    width: 100%;
+    height: 40px;
+    /* background: greenyellow; */
+    font-size: 14px;
+    border-bottom: 1px solid #CECECE;
+    float: left;
+}
+
+.likeDIslike{
+    width: 7%;
+    font-size: 20px;
+    border: none;
+    background: #F7F7F7;
+    cursor: pointer;
+}

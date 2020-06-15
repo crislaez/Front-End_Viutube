@@ -68,6 +68,16 @@ const getFollowByIdUser = (data) => {
     return fetch(process.env.REACT_APP_URL+'/getFollowByIdUser/'+data, {method:'GET'}).then(data => data.json())
 }
 
+//dar like
+const addLike = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/addLike',{method:'POST', body:data, headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+const removeLike = (data, data2) => {
+    return fetch(process.env.REACT_APP_URL+'/removeLike/'+data+'/'+data2,{method:'DELETE', headers:{authorization: `BEARER ${localStorage.getItem('viutubeToken')}`}}).then(data => data.json())
+}
+
+
 export default 
     {
         addUser,
@@ -83,5 +93,7 @@ export default
         addFollow,
         removeFollow,
         checkFollow,
-        getFollowByIdUser
+        getFollowByIdUser,
+        addLike,
+        removeLike
     }
