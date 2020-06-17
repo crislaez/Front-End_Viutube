@@ -109,8 +109,8 @@ const countDislikeByIdVideo = (data) => {
 }
 
 //buscar videos por titulo
-const getVideoByTitle = (data) => {
-    return fetch(process.env.REACT_APP_URL+'/getVideoByTitle/'+data,{method:'GET'}).then(data => data.json())
+const getUserByUserName = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/getUserByUserName/'+data,{method:'GET'}).then(data => data.json())
 }
 
 export default 
@@ -137,5 +137,5 @@ export default
         checkDislike,
         countLikeByIdVideo,
         countDislikeByIdVideo,
-        getVideoByTitle
+        getUserByUserName
     }

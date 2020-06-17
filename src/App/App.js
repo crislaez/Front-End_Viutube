@@ -13,6 +13,7 @@ import Login from '../Pages/Login/Login';
 import Registro from '../Pages/Registro/Registro';
 import Perfil from '../Pages/Perfil/Perfil';
 import Video from '../Pages/Video/Video';
+import Buscador from '../Pages/Buscador/Buscador';
 //servicios
 import Services from '../Services/Services';
 
@@ -87,15 +88,6 @@ function App(props){
         .catch(err => console.log(err))
     };
 
-    const funcionGetYoutubeVideo = (data) => {
-        console.log(data);
-        Services.getVideoByTitle(data)
-        .then(response => {
-            console.log(response)
-        })
-        // setArrayDatosBuscador(data)        
-    }
-
     //funcion que cargara a todos los usuarios que seguimos que estara en aside
     const funcionConseguirUsuariosSeguidos = () => {
         if(localStorage.getItem('viewinindice')){
@@ -117,7 +109,6 @@ function App(props){
                     funcionMenuAside={funcionMenuAside} 
                     logueado={logueado} 
                     datosUsuario={datosUsuario}
-                    funcionGetYoutubeVideo={funcionGetYoutubeVideo}
                     funcionDatosUsuarioLogueado={funcionDatosUsuarioLogueado}
                     ></Header>
                     <Aside 
@@ -165,8 +156,13 @@ function App(props){
                         funcionConseguirUsuariosSeguidos={funcionConseguirUsuariosSeguidos}
                         ></Video></Route>
                         
-                        <Route path='*'><div>ERROR 404</div></Route>
+                        <Route exact path='/Buscador/:nombre'>
+                        <Buscador
+                        ></Buscador>
+                        </Route>
 
+                        <Route path='*'><div>ERROR 404</div></Route>
+                        
                     </Switch>
                 </div>
             {

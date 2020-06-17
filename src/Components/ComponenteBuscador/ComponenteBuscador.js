@@ -1,4 +1,5 @@
 import React ,{useState, useEffect} from 'react';
+import {withRouter} from 'react-router-dom'
 //css
 import './ComponenteBuscador.css';
 //font awesome
@@ -12,9 +13,10 @@ function ComponenteBuscador(props){
     //evento del campo buscador
     const handleSubmit = (event) => {
         event.preventDefault();
-        //llamamos a la funcion que esta en app que nos buscara las videos
-        const funcionGetYoutubeVideo = props.funcionGetYoutubeVideo;
-        funcionGetYoutubeVideo(textoBuscador);
+        // //llamamos a la funcion que esta en app que nos buscara las videos
+        // const funcionGetYoutubeVideo = props.funcionGetYoutubeVideo;
+        // funcionGetYoutubeVideo(textoBuscador);
+        props.history.push(`/buscador/${textoBuscador}`)
         //limpiamos el campo
         setTextoBuscador('');
     };
@@ -27,4 +29,4 @@ function ComponenteBuscador(props){
     )
 }
 
-export default ComponenteBuscador;
+export default withRouter(ComponenteBuscador);

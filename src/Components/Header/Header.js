@@ -49,7 +49,7 @@ function Header(props){
                 </div>
             </div>
 
-            <ComponenteBuscador funcionGetYoutubeVideo={props.funcionGetYoutubeVideo}></ComponenteBuscador>
+            <ComponenteBuscador></ComponenteBuscador>
 
             <div className='divOpciones' style={{marginLeft:`${margenLeftDivOpciones}`}}>
                 <label style={{marginLeft:'53%'}}><FontAwesomeIcon icon={faVideo}></FontAwesomeIcon></label>
