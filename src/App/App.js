@@ -29,7 +29,9 @@ function App(props){
     const [datosUsuario, setDatosUsuario] = useState([]);
     const [datosUsuarioPerfil, setDatosUsuarioPerfil] = useState([]);
 
-    const [arrayUsuariosSegudos, setArrayUsuariosSeguidos] = useState([])
+    const [arrayUsuariosSegudos, setArrayUsuariosSeguidos] = useState([]);
+    
+    const [arrayDatosBuscador, setArrayDatosBuscador] = useState([]);
 
     useEffect( () => {
         if(localStorage.getItem('viewinindice')){
@@ -85,14 +87,13 @@ function App(props){
         .catch(err => console.log(err))
     };
 
-    const getYoutubeVideo = (data) => {
-        console.log(data)
-
-        Services.getVideo(data)
+    const funcionGetYoutubeVideo = (data) => {
+        console.log(data);
+        Services.getVideoByTitle(data)
         .then(response => {
             console.log(response)
         })
-        .catch(err => console.log(err))
+        // setArrayDatosBuscador(data)        
     }
 
     //funcion que cargara a todos los usuarios que seguimos que estara en aside
@@ -116,7 +117,7 @@ function App(props){
                     funcionMenuAside={funcionMenuAside} 
                     logueado={logueado} 
                     datosUsuario={datosUsuario}
-                    getYoutubeVideo={getYoutubeVideo}
+                    funcionGetYoutubeVideo={funcionGetYoutubeVideo}
                     funcionDatosUsuarioLogueado={funcionDatosUsuarioLogueado}
                     ></Header>
                     <Aside 

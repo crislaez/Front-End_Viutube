@@ -38,34 +38,6 @@ header{
     cursor: pointer;
 }
 
-header form{
-    width: 50%;
-    height: 50px;
-    /* background: blue; */
-    float: left;
-}
-
-header form input[type='text']{
-    width: 75%;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 15%;
-    border: 1px solid #E1E1E1;
-}
-
-header form input[type='text']::placeholder{
-   padding-left: 10px;
-}
-
-header form button{
-    width: 8%;
-    height: 32px;
-    margin-top: 10px;
-    /* background: yellow; */
-    border: 1px solid #E1E1E1;
-    color: #8D8D8D;
- }
-
 .divOpciones{
     width: 18%;
     height: 50px;

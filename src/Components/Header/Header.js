@@ -4,15 +4,17 @@ import {Link,withRouter} from 'react-router-dom';
 import './Header.css';
 //font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars, faSearch, faVideo, faAngleDoubleDown, faEllipsisV, faUser, faBell} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faVideo, faAngleDoubleDown, faEllipsisV, faUser, faBell} from '@fortawesome/free-solid-svg-icons';
 //imagen
 import logo from '../../Img/LogoMakr_7dFpnR.png';
 //componente
 import ComponenteOpciones from '../ComponenteOpciones/ComponenteOpciones';
+import ComponenteBuscador from '../ComponenteBuscador/ComponenteBuscador';
+
 
 function Header(props){
 
-    const [textoBuscador, setTextoBuscador] = useState('');
+    // const [textoBuscador, setTextoBuscador] = useState('');
     const [margenLeftDivOpciones, setMargenLeftDivOpciones] = useState('');
     const [aparecerdivOpciones, setAparecerdivOpciones] = useState(false);
 
@@ -26,17 +28,6 @@ function Header(props){
         }
     },[props.logueado]);
 
-
-    //evento del campo buscador
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(textoBuscador)
-        //llamamos a la funcion que esta en app que nos buscara las videos
-        const getYoutubeVideo = props.getYoutubeVideo;
-        getYoutubeVideo(textoBuscador);
-        //limpiamos el campo
-        setTextoBuscador('');
-    };
 
     //recargar la pagina cuando pinchemos el logo del header
     const handleClick = () => {
@@ -58,10 +49,7 @@ function Header(props){
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit} action='' method=''>
-                <input type='text' name='buscador' value={textoBuscador} onChange={params => setTextoBuscador(params.target.value)} placeholder='Buscar'></input>
-                <button type='submit'><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon></button>
-            </form>
+            <ComponenteBuscador funcionGetYoutubeVideo={props.funcionGetYoutubeVideo}></ComponenteBuscador>
 
             <div className='divOpciones' style={{marginLeft:`${margenLeftDivOpciones}`}}>
                 <label style={{marginLeft:'53%'}}><FontAwesomeIcon icon={faVideo}></FontAwesomeIcon></label>
