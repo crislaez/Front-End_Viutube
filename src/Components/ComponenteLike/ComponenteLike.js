@@ -6,6 +6,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown}
 from '@fortawesome/free-solid-svg-icons';
 import Services from '../../Services/Services';
+//componentes
+import ContarReproduccion from '../../Components/ContarReproduccion/ContarReproduccion';
+
 
 function ComponenteLike(props){
 
@@ -160,10 +163,11 @@ function ComponenteLike(props){
     }
 
     // console.log(props.arrayDatosVideo.id_video);
-
+    // id={arrayDatosVideo.id_video}
     return(
         <div className='divDatosVideo'>
-            <label>0 visualizaciones</label>
+        
+            <ContarReproduccion id_video={props.id_video}></ContarReproduccion>
             <label style={{marginLeft:'5%'}}>publicado: {props.arrayDatosVideo.fecha_video}</label>
             <button id='bLike' disabled={habilitarLike} onClick={funcionLike} className='likeDIslike' style={{marginLeft:'25%'}}><FontAwesomeIcon id='bLike' style={{marginRight:'1%', color:`${colorLike}`}} icon={faThumbsUp}></FontAwesomeIcon>{cantidadLike}</button>
             <button id='bDislike' disabled={habilitarDislike} onClick={funcionDislike} className='likeDIslike' style={{marginLeft:'5%'}}><FontAwesomeIcon id='bDislike' style={{marginRight:'1%', color:`${colorDisLike}`}} icon={faThumbsDown}></FontAwesomeIcon>{cantidadDislikes}</button>

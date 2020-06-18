@@ -113,6 +113,16 @@ const getUserByUserName = (data) => {
     return fetch(process.env.REACT_APP_URL+'/getUserByUserName/'+data,{method:'GET'}).then(data => data.json())
 }
 
+//crear reproduccion
+const addReproduction = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/addReproduction',{method:'POST',body:data}).then(data => data.json());
+}
+
+//contar reproducciones
+const getReproductionByIdVideo = (data) => {
+    return fetch(process.env.REACT_APP_URL+'/getReproductionByIdVideo/'+data,{method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -137,5 +147,7 @@ export default
         checkDislike,
         countLikeByIdVideo,
         countDislikeByIdVideo,
-        getUserByUserName
+        getUserByUserName,
+        addReproduction,
+        getReproductionByIdVideo
     }

@@ -36,7 +36,7 @@ function Video(props){
             setIslogin(false);
         }else{
             setIslogin(true);
-        }
+        }     
 
         return() => {
             setIsMount(false);
@@ -48,8 +48,11 @@ function Video(props){
         Services.getVideoByIdVideo(data)
         .then(response => {
             // console.log(response.data[0])
-            setArrayDatosVideos(response.data[0])
+            setArrayDatosVideos(response.data[0]);
+            //llamamos a la funcion que esta ams abajo para agregarle una reproduccion
+            agregarReproduccion(response.data[0].id_video)
         })
+        .catch(err => console.log(err))
     };
 
     //funcion para conseguir los mensajes del video
@@ -99,20 +102,29 @@ function Video(props){
         props.history.push(`/perfil/${arrayDatosVideo.id_usuario}`)
     };
 
+    //cuando hacemos click al video aumentamos reproduccionm
+    const agregarReproduccion = (id_video) => {
+        let data = new URLSearchParams(`id_reporduccion=${''}&id_video=${id_video}`)
+        Services.addReproduction(data)
+        .then(response => {
+            console.log(response)
+        })
+    }
+
 
 // console.log(arrayMensajesVideo)
     return(
         <article className='sectionVideo'>
             <div className='contenedorVideoLeft'>
                 <div className='divCajaVideo'>
-                    <video src={arrayDatosVideo.video} controls ></video>
+                    <video src={arrayDatosVideo.video} controls></video>
                 </div>
 
                 <div className='divTituloVideo'>
                     <h2>{arrayDatosVideo.titulo_video}</h2>
                 </div>
            
-                <ComponenteLike arrayDatosVideo={arrayDatosVideo}></ComponenteLike>
+                <ComponenteLike arrayDatosVideo={arrayDatosVideo} id_video={arrayDatosVideo.id_video}></ComponenteLike>
 
                 <div className='divDatosUsuarioCanal'>
                     <div className='divDatosUsuarioVideos'>
@@ -122,7 +134,7 @@ function Video(props){
 
                         <div className='divNombreCanalVideo'>
                             <h3>{arrayDatosVideo.nombre_usuario}</h3>
-                            <p>0 suscriptores</p>
+                            <p>0 suscriptores</p>                          
                         </div>
 
                         {
